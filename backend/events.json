@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "title": "Testing",
+      "image": "https://img.freepik.com/foto-gratis/bidikan-close-up-kupu-kupu-cantik-dengan-tekstur-menarik-di-atas-bunga-berpetal-oranye_181624-7640.jpg?semt=ais_hybrid&w=740&q=80",
+      "date": "2026-04-14",
+      "description": "Just A Testing!!!",
+      "id": "0f309fab-8b6a-4142-803a-e217b96359f4"
+    }
+  ],
+  "users": [
+    {
+      "email": "tes@gmail.com",
+      "password": "$2a$12$VOf1LXpR4rqxdEehDtMlUeTn0XNQU3xyBK0zX0SRjz4eP6OKDHtn6",
+      "id": "d47a0808-c84c-4403-96ba-831ab2853ef5"
+    }
+  ]
+}
