@@ -26,7 +26,7 @@ export const authAction = async ({ request }: ActionFunctionArgs) => {
     password: data.get("password"),
   };
 
-  const response = await fetch("http://localhost:8080/" + mode, {
+  const response = await fetch(`${import.meta.env.VITE_REST_API_URL}` + mode, {
     method: "POST",
     body: JSON.stringify(authData),
     headers: {
@@ -45,7 +45,7 @@ export const authAction = async ({ request }: ActionFunctionArgs) => {
 };
 
 export const logoutAction = async () => {
-  const response = await fetch("http://localhost:8080/logout", {
+  const response = await fetch(`${import.meta.env.VITE_REST_API_URL}/logout`, {
     method: "POST",
     credentials: "include",
   });

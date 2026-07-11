@@ -32,7 +32,9 @@ function EventDetailPage() {
 export default EventDetailPage;
 
 async function loadEvent(id: string) {
-  const response = await fetch("http://localhost:8080/events/" + id);
+  const response = await fetch(
+    `${import.meta.env.VITE_REST_API_URL}/events` + id,
+  );
 
   if (!response.ok) {
     throw new Response("Could not fetch details for selected event.", {
@@ -45,7 +47,7 @@ async function loadEvent(id: string) {
 }
 
 async function loadEvents() {
-  const response = await fetch("http://localhost:8080/events");
+  const response = await fetch(`${import.meta.env.VITE_REST_API_URL}/events`);
 
   if (!response.ok) {
     // return { isError: true, message: 'Could not fetch events.' };
@@ -75,10 +77,13 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export async function action({ params, request }: ActionFunctionArgs) {
   const eventId = params.eventId;
 
-  const response = await fetch("http://localhost:8080/events/" + eventId, {
-    method: request.method,
-    credentials: "include",
-  });
+  const response = await fetch(
+    `${import.meta.env.VITE_REST_API_URL}/events` + eventId,
+    {
+      method: request.method,
+      credentials: "include",
+    },
+  );
 
   if (!response.ok) {
     throw new Response("Could not delete event.", {

@@ -22,7 +22,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const urlPath = new URL(request.url).pathname;
   const eventId = params.eventId;
 
-  const response = await fetch("http://localhost:8080/isAuth", {
+  const response = await fetch(`${import.meta.env.VITE_REST_API_URL}/isAuth`, {
     credentials: "include",
   });
 
