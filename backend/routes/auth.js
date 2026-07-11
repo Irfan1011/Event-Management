@@ -55,12 +55,10 @@ router.post("/login", async (req, res) => {
   try {
     user = await get(email);
   } catch (error) {
-    return res
-      .status(401)
-      .json({
-        message: "Authentication failed.",
-        errors: { credentials: "Could not find user for email " + email },
-      });
+    return res.status(401).json({
+      message: "Authentication failed.",
+      errors: { credentials: "Could not find user for email " + email },
+    });
   }
 
   const pwIsValid = await isValidPassword(password, user.password);
@@ -78,6 +76,7 @@ router.post("/login", async (req, res) => {
       expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       httpOnly: true,
       secure: true,
+      sameSite: "none",
     })
     .json({ token });
 });
@@ -87,6 +86,7 @@ router.post("/logout", (req, res, next) => {
     .clearCookie("token", {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
     })
     .status(200)
     .json({ message: "Logged Out" });
