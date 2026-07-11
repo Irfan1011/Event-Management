@@ -33,7 +33,7 @@ export default EventDetailPage;
 
 async function loadEvent(id: string) {
   const response = await fetch(
-    `${import.meta.env.VITE_REST_API_URL}/events` + id,
+    `${import.meta.env.VITE_REST_API_URL}/events/` + id,
   );
 
   if (!response.ok) {
