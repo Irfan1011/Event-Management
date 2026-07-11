@@ -101,11 +101,11 @@ export async function action({ request, params }: ActionFunctionArgs) {
     description: data.get("description"),
   };
 
-  let url = "http://localhost:8080/events";
+  let url = `${import.meta.env.VITE_REST_API_URL}/events`;
 
   if (method === "PATCH") {
     const eventId = params.eventId;
-    url = "http://localhost:8080/events/" + eventId;
+    url += eventId;
   }
 
   const response = await fetch(url, {
