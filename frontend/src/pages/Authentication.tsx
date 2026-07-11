@@ -26,7 +26,7 @@ export const authAction = async ({ request }: ActionFunctionArgs) => {
     password: data.get("password"),
   };
 
-  const response = await fetch(`${import.meta.env.VITE_REST_API_URL}` + mode, {
+  const response = await fetch(`${import.meta.env.VITE_REST_API_URL}/` + mode, {
     method: "POST",
     body: JSON.stringify(authData),
     headers: {
